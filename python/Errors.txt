@@ -1,0 +1,11 @@
+{
+    "errors": [
+        {
+            "error": "Error during request to https://jegged.com/Games/Final-Fantasy-VII/Materia/Full-List.html : HTTPSConnectionPool(host='jegged.com', port=443): Max retries exceeded with url: /Games/Final-Fantasy-VII/Materia/Full-List.html (Caused by SSLError(\"Can't connect to HTTPS URL because the SSL module is not available.\"))",
+            "resolution": [
+                {"attempt":"Install OpenSSL following instructions from https://www.cloudinsidr.com/content/how-to-install-the-most-recent-version-of-openssl-on-windows-10-in-64-bit/",
+                 "status":"Success"}
+            ]
+        }
+    ]
+}
