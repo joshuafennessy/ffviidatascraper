@@ -1,3 +1,8 @@
+#package imports
+from requests import get
+from requests.exceptions import RequestException
+from contextlib import closing
+
 #function to return the results of a webpage request
 #adopted from https://realpython.com/python-web-scraping-practical-introduction/
 def simple_get(url):
@@ -9,7 +14,7 @@ def simple_get(url):
                 return None
 
     except RequestException as e:
-        log_error('Error during request to {0} : {1}'.format(url, str(e)))
+        log_error_simple('Error during request to {0} : {1}'.format(url, str(e)))
         return None
 
 #returns True if the reponse code is positive and the responses seems to be html
