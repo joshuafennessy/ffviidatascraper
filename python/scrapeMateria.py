@@ -39,16 +39,25 @@ def parseMateriaDetails(m, resp):
 
     #print(materiaDetails)
 
-"""
- The first objective is to retrieve a list of all materia from the 
- landing page. For each materia in this list, make a request to the child
- page and scrape data from there.
-"""
+def parseMateriaLevels(m, resp):
+    #call another site to parse the Materia levels
+
+    """
+    The first objective is to retrieve a list of all materia from the 
+    landing page. For each materia in this list, make a request to the child
+    page and scrape data from there.
+    """
 
 mainMateriaURL = "https://jegged.com/Games/Final-Fantasy-VII/Materia/Full-List.html"
+levelMateriaURL = "https://www.ign.com/wikis/final-fantasy-vii/Materia#MAGIC_MATERIA_.5BGREEN.5D"
 
 mainMateriaListContent = simple_get(mainMateriaURL)
 bsMainMaterial = BeautifulSoup(mainMateriaListContent, 'html.parser')
+
+# levelMateriaListContent = simple_get(levelMateriaURL).find_all("section", class_="jsx-87452989 jsx-2220867494 wiki-section")
+
+#for materia in levelMateriaListContent:
+    #extract the text from each line item and use that to loop through and find the right line
 
 #loop thorough the Materia list on this page and start collecting attributes
 for link in bsMainMaterial.find_all("a", class_="iconwrap"):
@@ -67,5 +76,10 @@ for link in bsMainMaterial.find_all("a", class_="iconwrap"):
         parseMateriaDetails(m, detailResp)
         print(m.__dict__)
 
+        #run another process to collect the level and locations of each materia
+
     except Exception as e:
         print(e)
+
+
+
